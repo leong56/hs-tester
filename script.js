@@ -4,7 +4,7 @@ var homestuckName = {
   checkNameLength: function(name) {
     this.nameWords = name.split(" ");
     if(this.nameWords.length !== 2) {
-      this.validStatus = false;
+      this.validStatus = "wronglength";
     } else {
       if(this.nameWords[0].length === 6 && this.nameWords[1].length === 6) {
         this.validStatus = "troll";
@@ -30,6 +30,8 @@ var handlers = {
       message = "This is a valid Homestuck Troll name!";
     } else if(homestuckName.validStatus === "kids") {
       message = "This is a valid Homestuck Kid name!";
+    } else if(homestuckName.validStatus === "wronglength") {
+      message = "That's not the right number of words."
     }
     var messageP = document.createElement("p");
     messageP.textContent = message;
@@ -38,6 +40,7 @@ var handlers = {
   },
   joke: function() {
     var jokeP = document.querySelector("p");
+    jokeP.innerHTML = "";
     var imageTag = document.createElement("img");
     jokeP.appendChild(imageTag);
     var imageSource = document.createAttribute("src");
@@ -56,5 +59,3 @@ var handlers = {
     nameDiv.innerHTML="";
   },
 };
-
-//  var nameDiv = document.querySelector("div");
