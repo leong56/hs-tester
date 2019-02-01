@@ -1,4 +1,6 @@
-/* Styles go here */
+body {
+  background-color: #C6C6C6;
+}
 
 h1, h4 {
   text-align: center;
@@ -21,4 +23,12 @@ button {
   padding: 5px 10px;
   cursor: pointer;
   text-align: center;
+}
+
+input {
+  font-family: Courier;
+}
+
+input:focus {
+  background-color: #4bec13;
 }
