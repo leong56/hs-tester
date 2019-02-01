@@ -1,11 +1,3 @@
-// Code goes here
-// I need to get the name via a button/form
-// display the name as a list,
-// check the name,
-// clear the field
-// if name is valid I display "[name] is a valid Homestuck name"
-// if name is not valid I display "[name] is not a valid Homestuck name"
-
 var homestuckName = {
   nameWords: [],
   validStatus: "",
@@ -14,8 +6,10 @@ var homestuckName = {
     if(this.nameWords.length !== 2) {
       this.validStatus = false;
     } else {
-      if((this.nameWords[0].length === 4 && this.nameWords[1].length === 6) || (this.nameWords[0].length === 6 && this.nameWords[1].length === 6) || (this.nameWords[0].length === 4 && this.nameWords[1].length === 7)) {
-        this.validStatus = true;
+      if(this.nameWords[0].length === 6 && this.nameWords[1].length === 6) {
+        this.validStatus = "troll";
+      } else if((this.nameWords[0].length === 4 && this.nameWords[1].length === 6) || (this.nameWords[0].length === 4 && this.nameWords[1].length === 7)) {
+        this.validStatus = "kids";
       } else {
         this.validStatus = false;
       }
@@ -30,11 +24,13 @@ var handlers = {
     nameDiv.innerHTML = "";
     var homestuckNameInput = document.getElementById("homestuckNameInput");
     homestuckName.checkNameLength(homestuckNameInput.value);
-    if(homestuckName.validStatus === true) {
-      message = "This is a valid Homestuck Kid or Troll name!";
-    } else {
+    if(homestuckName.validStatus === false) {
       message = "This is not a valid Homestuck Kid or Troll name!";
-    };
+    } else if(homestuckName.validStatus === "troll") {
+      message = "This is a valid Homestuck Troll name!";
+    } else if(homestuckName.validStatus === "kids") {
+      message = "This is a valid Homestuck Kid name!";
+    }
     var messageP = document.createElement("p");
     messageP.textContent = message;
     nameDiv.appendChild(messageP);
@@ -58,7 +54,7 @@ var handlers = {
   clear: function() {
     var nameDiv = document.querySelector("#useThisDiv");
     nameDiv.innerHTML="";
-  }
+  },
 };
 
 //  var nameDiv = document.querySelector("div");
