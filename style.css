@@ -1,3 +1,5 @@
+/* Styles go here */
+
 body {
   background-color: #C6C6C6;
 }
@@ -23,10 +25,14 @@ button {
   padding: 5px 10px;
   cursor: pointer;
   text-align: center;
+  font-size: 14px;
 }
 
 input {
   font-family: Courier;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-bottom: 3px;
 }
 
 input:focus {
