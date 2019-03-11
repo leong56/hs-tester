@@ -25,11 +25,11 @@ var handlers = {
     var homestuckNameInput = document.getElementById("homestuckNameInput");
     homestuckName.checkNameLength(homestuckNameInput.value);
     if(homestuckName.validStatus === false) {
-      message = "This is not a valid Homestuck Kid or Troll name!";
+      message = homestuckNameInput + " is not a valid Homestuck Kid or Troll name!";
     } else if(homestuckName.validStatus === "troll") {
-      message = "This is a valid Homestuck Troll name!";
+      message = homestuckNameInput + " is a valid Homestuck Troll name!";
     } else if(homestuckName.validStatus === "kids") {
-      message = "This is a valid Homestuck Kid name!";
+      message = homestuckNameInput + " is a valid Homestuck Kid name!";
     } else if(homestuckName.validStatus === "wronglength") {
       message = "That's not the right number of words."
     }
